@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from "react-redux"
+import {quitarTitular} from "../redux/actions/actionsEntrenador"
 const Titulares = ({titulares, quitarTitular}) => (
     <section>
         <h2>Titulares</h2>
@@ -22,16 +23,20 @@ const Titulares = ({titulares, quitarTitular}) => (
 )
 
 const mapStateToProps = state => ({
-    titulares: state.titulares
+    titulares: state.entrenador.titulares
 })
 
-const mapDispatchToProps = dispatch => ({
-    quitarTitular(titular){
-        dispatch({
-            type: "QUITAR_TITULAR",
-            titular
-        })
+const mapDispatchToProps = {
+    quitarTitular
+}
 
-    }
-})
+// const mapDispatchToProps = dispatch => ({
+//     quitarTitular(titular){
+//         dispatch({
+//             type: "QUITAR_TITULAR",
+//             titular
+//         })
+
+//     }
+// })
 export default connect(mapStateToProps, mapDispatchToProps)(Titulares);
